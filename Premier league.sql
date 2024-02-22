@@ -160,6 +160,17 @@ FROM [season-0910]
 WHERE HomeTeam = 'Man United' AND FTR = 'D'
 GROUP BY HomeTeam, AwayTeam, FTAG, FTHG; 
 
+	-- who where the referees in these Man United matches where the final outcome is a draw 
+WITH TotalDraws AS(
+	SELECT *,
+		COUNT(FTR) OVER() AS ManU_Draws
+	FROM [season-0910]
+	WHERE (HomeTeam = 'Man United' OR AwayTeam = 'Man United') AND FTR = 'D')
+
+SELECT HomeTeam, AwayTeam, Referee
+FROM TotalDraws
+GROUP BY HomeTeam, AwayTeam, Referee; 
+
 	
 
 
