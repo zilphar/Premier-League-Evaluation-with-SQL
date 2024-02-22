@@ -31,7 +31,8 @@ FROM [season-0910];
 	If the condition is true, it returns 1; otherwise, it returns 0. 
 	The SUM function then adds up all these 1s and 0s, effectively counting the number of rows that meet the condition. 
 	Here, it's counting the number of matches where Manchester United won, either as the home team (HomeTeam = 'Manchester United' and FTR = 'H') or 
-	as the away team (AwayTeam = 'Manchester United' and FTR = 'A'). The result is assigned an alias total_wins.*/
+	as the away team (AwayTeam = 'Manchester United' and FTR = 'A'). The result is assigned an alias total_wins. 
+*/
 
 SELECT
 	SUM(CASE WHEN(HomeTeam = 'Man United' AND FTR = 'H') OR (AwayTeam = 'Man United' AND FTR = 'A') THEN 1 ELSE 0 END) AS total_ManU_wins
