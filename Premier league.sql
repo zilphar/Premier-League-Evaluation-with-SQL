@@ -139,24 +139,28 @@ WHERE FTR = 'A'
 GROUP BY AwayTeam
 ORDER BY away_win DESC; 
 
--- 9 Number of draw matches in the Season0910
+-- 9. Number of draw matches in the Season0910
 SELECT 
 	COUNT(FTR) AS Draws  -- 96 total draws 
 FROM [season-0910]
 WHERE FTR = 'D'; 
 
--- out of the draws from the season which ones are from when Man United was the Home team
-	-- 1 draw where Man United is the Hometeam (Away team was Sunderland) with a draw of 2 goals each  
+	-- total Man U draws (4 draws)
+SELECT HomeTeam, AwayTeam, FTAG, FTHG,
+	COUNT(FTR) AS ManU_Draws
+FROM [season-0910]
+WHERE (HomeTeam = 'Man United' OR AwayTeam = 'Man United') AND FTR = 'D'
+GROUP BY HomeTeam, AwayTeam, FTAG, FTHG; 
+
+	-- out of the draws from the season which ones are from when Man United was the Home team
+		-- 1 draw where Man United is the Hometeam (Away team was Sunderland) with a draw of 2 goals each  
 SELECT HomeTeam,AwayTeam, FTAG, FTHG,
 	COUNT(FTR) AS ManU_Draws
 FROM [season-0910]
 WHERE HomeTeam = 'Man United' AND FTR = 'D'
 GROUP BY HomeTeam, AwayTeam, FTAG, FTHG; 
 
-SELECT 
-	COUNT(FTR) AS ManU_Draws
-FROM [season-0910]
-WHERE (HomeTeam = 'Man United' OR AwayTeam = 'Man United') AND FTR = 'D'; 
+	
 
 
 
