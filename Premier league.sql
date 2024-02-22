@@ -146,6 +146,10 @@ FROM [season-0910]
 WHERE FTR = 'D'; 
 
 -- out of the draws from the season which ones are from when Man United was the Home team
+SELECT 
+	COUNT(FTR) AS ManU_Draws  -- Total of 1 draw where Man United was the Home team
+FROM [season-0910]
+WHERE HomeTeam = 'Man United' AND FTR = 'D'; 
 
 SELECT 
 	COUNT(FTR) AS ManU_Draws
