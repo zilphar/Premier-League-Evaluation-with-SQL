@@ -146,7 +146,7 @@ FROM [season-0910]
 WHERE FTR = 'D'; 
 
 -- out of the draws from the season which ones are from when Man United was the Home team
-	-- 1 draw where Man United is the Hometeam (Away team was Sunderland) 
+	-- 1 draw where Man United is the Hometeam (Away team was Sunderland) with a draw of 2 goals each  
 SELECT HomeTeam,AwayTeam, FTAG, FTHG,
 	COUNT(FTR) AS ManU_Draws
 FROM [season-0910]
