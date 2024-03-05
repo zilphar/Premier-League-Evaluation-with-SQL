@@ -204,7 +204,7 @@ FROM [season - 2223];
 	FROM [season - 2223]
 
 
---3.Focusing on ManChester United 
+--3. ManChester United 
 	--Referees who officiated matches where Man United played either as home team or away team (The referees who officiated a match while Manchester United was the home team are still the same that officiated when Manchester United was the awayteam)
 	WITH Home_Referees AS(
 		SELECT DISTINCT Referee
