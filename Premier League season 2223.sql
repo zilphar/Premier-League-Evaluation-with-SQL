@@ -221,7 +221,7 @@ FROM [season - 2223];
 	SELECT *
 	FROM Home_Referees AS H
 		INNER JOIN Away_Referees AS A
-		ON H.Referee = A.Referee; 
+		ON H.Referee = A.Referee; -- joins the two CTEs with referee as the common key and returns the names of referees for both home and away matches for manchester united
 
 	-- How many Red flags did Man United get through the season as the hometeam (Man United received one red card as an home team through the season2223)
 	-- The match when this Red flag was given was a home win for Manchester United against Crystal Palace (2 to 1 respectively) and A Marriner was the Referee. 
