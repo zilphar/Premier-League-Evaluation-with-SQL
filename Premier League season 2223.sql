@@ -125,21 +125,21 @@ ORDER BY matches_officiated DESC; -- order the results from highest to lowest
 -- Total shots on target for each Team throughout the season (Created a CTE here too)
 WITH H_shots_ontarget AS(
 	SELECT HomeTeam,
-		SUM(HST) AS home_shots_ontarget  -- Sums and stores the HST (Home shots on target) as a total of all shots on target by the home team
+		SUM(HST) AS home_shots_ontarget  -- Sums and stores the HST (Home shots on target) as a total of all shots on target by the home teams
 	FROM [season - 2223]
 	GROUP BY HomeTeam),
 
 A_shots_ontarget AS(
 	SELECT AwayTeam,
-		SUM(AST) AS away_shots_ontarget  -- sums and stores AST (Away shots on target) as a total of all shots on target by the away team 
+		SUM(AST) AS away_shots_ontarget  -- sums and stores AST (Away shots on target) as a total of all shots on target by the away teams 
 	FROM [season - 2223]
 	GROUP BY AwayTeam)
 
 SELECT HomeTeam, 
-	SUM(home_shots_ontarget + away_shots_ontarget) AS Total_shots_ontarget
+	SUM(home_shots_ontarget + away_shots_ontarget) AS Total_shots_ontarget  -- sums the home shots on target and away shots on target to get the total shots on target.(Here one can also calculate the average shots on target using the AVG statement in place of the SUM statement)
 FROM H_shots_ontarget AS H
 	INNER JOIN A_shots_ontarget AS A 
-	ON H.HomeTeam = A.AwayTeam 
+	ON H.HomeTeam = A.AwayTeam   -- joins the two CTEs above as one using the hometeama nd awayteam as the common key. 
 GROUP BY HomeTeam 
 ORDER BY Total_shots_ontarget DESC; 
 
