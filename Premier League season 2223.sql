@@ -189,19 +189,19 @@ INTERSECT   -- the INTERSET statement compares the two queries and returns refer
 SELECT DISTINCT Referee
 FROM [season - 2223]; 
 
--- comparing with season2122
-	-- teams that played in season season2122 and played in season2223 (Burnley, Norwich, and Watford played in season2122 bts did not play in season2223)
+-- comparing with season2122 (This season precedent the season2223 so let's look into it)
+	-- teams that played in season season2122 and did not play in season2223 (Burnley, Norwich, and Watford played in season2122 bts did not play in season2223)
 	-- Burnley, Norwich and Watford were relegated from the premier League at end of season2122 meaning they did not qualify to play in the 2223 season (Makes me want to look at their performance in the season2122)
 	SELECT DISTINCT HomeTeam
 	FROM [season - 2122]
-	EXCEPT 
+	EXCEPT   -- returns the teams that played in season2122 and did not play in the season2223
 	SELECT DISTINCT HomeTeam
 	FROM [season - 2223]; 
 
 	-- Referees who officiated matches in season2122 and did not officiate matches in season2223 (J Moss, K Friend, M Atkinson, and M Dean officited in Season 2122 and did not officiate in season2223)
 	SELECT DISTINCT Referee
 	FROM [season - 2122]
-	EXCEPT 
+	EXCEPT    -- returns referees that officiated matches in season2122 and did not officiate in season2223
 	SELECT DISTINCT Referee
 	FROM [season - 2223]
 
