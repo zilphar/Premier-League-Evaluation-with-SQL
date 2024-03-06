@@ -232,6 +232,6 @@ FROM [season - 2223];
 
 	--Red cards Man United recieved as the AwayTeam through the season (No redcards for Man United as the awayteam through the season)
 	SELECT 
-		COUNT(AR) AS away_redcards
+		COUNT(AR) AS away_redcards  -- counts the number of away redcards manchester recieved 
 	FROM [season - 2223]
 	WHERE AwayTeam = 'Man United' AND AR > 0;
