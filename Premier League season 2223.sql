@@ -90,6 +90,7 @@ ORDER BY total_goals DESC;
 
 
 -- teams and their number of home and away won matches throughout the season2223 (Man City leads with a total of 28 won matches)
+	-- the output is a table with hometeam, and total wonmatches for all teams that played throughout the season2223
 WITH Home_matches AS (
 	SELECT HomeTeam,
 		COUNT(FTR) AS home_wonmathes  -- This CTE counts and stores the FTR matches where it is a homewin (H) 
@@ -115,7 +116,7 @@ ORDER BY total_wonmatches DESC;
 
 -- Referees who officiated the most matches (A Tylor, M Oliver, and P Tierney officiated a total of 30 matches each which happens to be the highest number of matches officiated by one Ref in the season)
 SELECT Referee,
-	COUNT(Referee) AS matches_officiated
+	COUNT(Referee) AS matches_officiated  -- counts the number of matches a referee officiated through the season
 FROM [season - 2223]
 GROUP BY Referee
 ORDER BY matches_officiated DESC; 
