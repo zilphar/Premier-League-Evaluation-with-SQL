@@ -148,44 +148,44 @@ ORDER BY Total_shots_ontarget DESC;
 CREATE VIEW Total_Shots AS 
 	WITH H_shots AS (
 		SELECT HomeTeam,
-			SUM([Home Shots]) AS Home_shots
+			SUM([Home Shots]) AS Home_shots  -- sums and stores the total homeshots
 		FROM [season - 2223]
 		GROUP BY HomeTeam),
 
 	A_shots AS(
 		SELECT AwayTeam,
-			SUM([Away Shots]) AS Away_shots
+			SUM([Away Shots]) AS Away_shots -- sums and stores the total awayshots 
 		FROM [season - 2223]
 		GROUP BY AwayTeam) 
 
 	SELECT HomeTeam, Home_shots, Away_shots
 	FROM H_shots
 		INNER JOIN A_shots
-		ON H_shots.HomeTeam = A_shots.AwayTeam; 
+		ON H_shots.HomeTeam = A_shots.AwayTeam;   -- joins the above CTEs as one table with hometeam and awayteam and the common key. 
 
-SELECT *
-FROM Total_Shots
+SELECT *    -- retrieves the data from the stored view above 
+FROM Total_Shots  
 ORDER BY Home_shots DESC, Away_shots DESC; 
 
 
 -- Of the total shots how many of them where from teams with 'Man' in their name 
-SELECT *
+SELECT * 
 FROM Total_Shots
-WHERE HomeTeam LIKE 'Man%'; 
+WHERE HomeTeam LIKE 'Man%'; -- using the wildcard '_%' to represent teams with the word 'Man' at the beginning 
 
 
 --2. Comparing the Season2223 with other seasons 
 -- teams that played in season0910 but did not play the season2223 (Chose season0910 here because I had analyzed it before)
 SELECT DISTINCT HomeTeam
 FROM [season-0910]
-EXCEPT
+EXCEPT    -- the EXCEPT statement returns only teams that played in the season0910 and not in season2223 (returns values in the first table that are not present in the second table)
 SELECT DISTINCT HomeTeam
 FROM [season - 2223]; 
 
 --Referees that have officiated matches in seson0910 and officiated in season2223 (A Marriner, A Tylor, and S Attwell have officiated matches in both seasons)
 SELECT DISTINCT Referee 
 FROM [season-0910]
-INTERSECT
+INTERSECT   -- the INTERSET statement compares the two queries and returns referees that officiated a match in both seaon2223 and season0910 (returns values that are common in both tables)
 SELECT DISTINCT Referee
 FROM [season - 2223]; 
 
