@@ -119,19 +119,19 @@ SELECT Referee,
 	COUNT(Referee) AS matches_officiated  -- counts the number of matches a referee officiated through the season
 FROM [season - 2223]
 GROUP BY Referee
-ORDER BY matches_officiated DESC; 
+ORDER BY matches_officiated DESC; -- order the results from highest to lowest 
 
 
--- Total shots on target for each Team throughout the season
+-- Total shots on target for each Team throughout the season (Created a CTE here too)
 WITH H_shots_ontarget AS(
 	SELECT HomeTeam,
-		SUM(HST) AS home_shots_ontarget
+		SUM(HST) AS home_shots_ontarget  -- Sums and stores the HST (Home shots on target) as a total of all shots on target by the home team
 	FROM [season - 2223]
 	GROUP BY HomeTeam),
 
 A_shots_ontarget AS(
 	SELECT AwayTeam,
-		SUM(AST) AS away_shots_ontarget
+		SUM(AST) AS away_shots_ontarget  -- sums and stores AST (Away shots on target) as a total of all shots on target by the away team 
 	FROM [season - 2223]
 	GROUP BY AwayTeam)
 
