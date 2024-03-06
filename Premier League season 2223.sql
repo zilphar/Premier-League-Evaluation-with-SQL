@@ -27,7 +27,7 @@ FROM [season - 2223]; */
 	WHERE AwayTeam = 'Nott''m Forest'; 
 
 	--renaming the AS and HS column names so that they do not result to confusion with aliasing (AS) when working with the number of shots taken by the teams
-	EXEC sp_rename '[season - 2223].HS', 'Home Shots', 'COLUMN'; 
+	EXEC sp_rename '[season - 2223].HS', 'Home Shots', 'COLUMN'; -- EXEC excecutes the sp rename stired procedure and renames the column from 'HS' to 'Home Shots' '
 	EXEC sp_rename '[season - 2223].AS', 'Away Shots', 'COLUMN'; 
 	
 -- total matches as home/away wins, and draws (184 home win matches, 109 away win matches, and 87 draws) (Equals 380 total matches)
