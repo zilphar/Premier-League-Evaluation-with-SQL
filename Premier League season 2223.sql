@@ -67,23 +67,24 @@ FROM [season - 2223];
 
 
 -- teams with highest number of away and home goals scored in season2223 (Man City has a total of 94 goals the highest number of goals combined for both home and away matches )
+-- The result is a table with hometeam and total goals columns showing eac team that played in the season and the number of goals they scored. 
 WITH HomeGoals AS (
 	SELECT HomeTeam,
-		SUM(FTHG) AS Home_goals  -- This CTE stores the total homegoals for the season
+		SUM(FTHG) AS Home_goals  -- This CTE stores the total homegoals for the season 
 	FROM [season - 2223]
 	GROUP BY HomeTeam),
 
 AwayGoals AS (
 	SELECT AwayTeam,
-		SUM(FTAG) AS away_goals
+		SUM(FTAG) AS away_goals  -- This one stores the total awaygoals throughout the season
 	FROM [season - 2223]
 	GROUP BY AwayTeam)
 
-SELECT HomeTeam, 
-	SUM(Home_goals + away_goals) AS total_goals
+SELECT HomeTeam,    
+	SUM(Home_goals + away_goals) AS total_goals  -- sums the homegoals and awaygoals to get their total
 FROM HomeGoals
 	INNER JOIN AwayGoals
-	ON HomeGoals.HomeTeam = AwayGoals.AwayTeam
+	ON HomeGoals.HomeTeam = AwayGoals.AwayTeam   -- Inner joining the two CTE's above to craete one table for both by using the hometeam and awayteam as the common key (hometeam and awayteam have the same datatype)
 GROUP BY HomeTeam	
 ORDER BY total_goals DESC; 
 
