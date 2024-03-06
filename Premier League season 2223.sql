@@ -18,7 +18,7 @@ FROM [season - 2223]; */
 
 -- Correcting the data 
 	-- Nottingham Forest is shortened as 'Nott'm Forest' 
-	UPDATE [season - 2223]
+	UPDATE [season - 2223]  -- changes the name of the hometeam 
 	SET HomeTeam = 'Nottingham Forest' 
 	WHERE HomeTeam = 'Nott''m Forest'; 
 
@@ -32,7 +32,7 @@ FROM [season - 2223]; */
 	
 -- total matches as home/away wins, and draws (184 home win matches, 109 away win matches, and 87 draws) (Equals 380 total matches)
 SELECT 
-	SUM(CASE WHEN FTR = 'H' THEN 1 ELSE 0 END) AS totalhome_win_matches,
+	SUM(CASE WHEN FTR = 'H' THEN 1 ELSE 0 END) AS totalhome_win_matches,  -- the SUM statement outside the CASE statement retruns a sum of the 1's returned by the CASE statement 
 	SUM(CASE WHEN FTR = 'A' THEN 1 ELSE 0 END) AS totalaway_win_matches, 
 	SUM(CASE WHEN FTR = 'D' THEN 1 ELSE 0 END) AS total_draws
 FROM [season - 2223]; 
