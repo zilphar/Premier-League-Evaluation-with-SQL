@@ -33,7 +33,7 @@ FROM [season - 2223]; */
 -- total matches as home/away wins, and draws (184 home win matches, 109 away win matches, and 87 draws) (Equals 380 total matches)
 SELECT 
 	SUM(CASE WHEN FTR = 'H' THEN 1 ELSE 0 END) AS totalhome_win_matches,  -- the CASE statement goes through the column FTR and returns a 1 where the match was a homewin (H), then the SUM statement sums these 1's and returns the number of matches which where homewins.  
-	SUM(CASE WHEN FTR = 'A' THEN 1 ELSE 0 END) AS totalaway_win_matches, 
+	SUM(CASE WHEN FTR = 'A' THEN 1 ELSE 0 END) AS totalaway_win_matches,  
 	SUM(CASE WHEN FTR = 'D' THEN 1 ELSE 0 END) AS total_draws
 FROM [season - 2223]; 
 
@@ -50,13 +50,13 @@ FROM [season - 2223];
 
 --total goals scored through the season2223 (621 homegoals, and 463 awaygoals)Totalling to 1084 goals
 SELECT 
-	SUM(FTHG) AS no_of_homegoals, 
+	SUM(FTHG) AS no_of_homegoals, -- sums the FTHG and FTAG separately to get the home and awayy goals. 
 	SUM(FTAG) AS no_of_awaygoals
 FROM [season - 2223]; 
 
 -- average goals per match (two goals per match)
 SELECT 
-	(SUM(FTHG) + SUM(FTAG)) / 380 AS avg_goals
+	(SUM(FTHG) + SUM(FTAG)) / 380 AS avg_goals -- to get average goals, you can divide the total sum of FTHG and FTAG and divide by total matches(380). 
 FROM [season - 2223]; 
 
 -- starting date and end date of the season (season started on 5th August 2022, and ended 28th May 2023)
