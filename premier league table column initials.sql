@@ -1,4 +1,4 @@
- /*
+-- COLUMN INITIALS 
  Date: The date of the match.
 HomeTeam: The name of the home team.
 AwayTeam: The name of the away team.
@@ -22,4 +22,3 @@ AY: Away Team Yellow Cards (the number of yellow cards received by players of th
 HR: Home Team Red Cards (the number of red cards received by players of the home team).
 AR: Away Team Red Cards (the number of red cards received by players of the away team).
 These are standard metrics used in football (soccer) match statistics to describe various aspects of the game.
-*/ 
