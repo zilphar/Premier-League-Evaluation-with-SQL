@@ -89,26 +89,26 @@ GROUP BY HomeTeam
 ORDER BY total_goals DESC; 
 
 
--- teams and their number of home and away won matches throughout the season2223 (Man United leads with a total of 23 won matches)
+-- teams and their number of home and away won matches throughout the season2223 (Man City leads with a total of 28 won matches)
 WITH Home_matches AS (
 	SELECT HomeTeam,
-		COUNT(FTR) AS home_wonmathes
+		COUNT(FTR) AS home_wonmathes  -- This CTE counts and stores the FTR matches where it is a homewin (H) 
 	FROM [season - 2223]
 	WHERE FTR = 'H' 
 	GROUP BY HomeTeam),
 
 Away_matches AS (
 	SELECT AwayTeam,
-		COUNT(FTR) AS away_wonmatches
+		COUNT(FTR) AS away_wonmatches  -- This CTE counts and stores the FTR where the match was won as an away team (A)
 	FROM [season - 2223]
-	WHERE FTR = 'H' 
+	WHERE FTR = 'A' 
 	GROUP BY AwayTeam)
 
 SELECT HomeTeam, 
-	SUM(home_wonmathes + away_wonmatches) AS total_wonmatches
+	SUM(home_wonmathes + away_wonmatches) AS total_wonmatches  -- returns the total sum of homewon matches and awaywon matches.
 FROM Home_matches
 	INNER JOIN Away_matches
-	ON Home_matches.HomeTeam = Away_matches.AwayTeam
+	ON Home_matches.HomeTeam = Away_matches.AwayTeam  -- Joins both the above CTEs using the hometeam and awayteam as the common key (hometeam and awayteam have the same datatype)
 GROUP BY HomeTeam
 ORDER BY total_wonmatches DESC; 
 
