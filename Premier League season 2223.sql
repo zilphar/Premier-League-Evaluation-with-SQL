@@ -61,7 +61,7 @@ FROM [season - 2223];
 
 -- starting date and end date of the season (season started on 5th August 2022, and ended 28th May 2023)
 SELECT 
-	MIN(Date) AS seeason_start_date,  -- start date is returned by the MIN statement and the end date is returned by the MAX statement 
+	MIN(Date) AS season_start_date,  -- start date is returned by the MIN statement and the end date is returned by the MAX statement 
 	MAX(Date) AS season_end_date
 FROM [season - 2223]; 
 
