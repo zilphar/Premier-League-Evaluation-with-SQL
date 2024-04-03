@@ -26,6 +26,7 @@ SELECT
 FROM [season-0910]; 
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-- A LOOK INTO MANCHESTER UNITED PERFORMANCE IN THE SEASON0910
 -- 1. The number of matches Manchester United won either home and away (27 matches)
 --The CASE statement checks each row to see if it meets certain conditions. 
 	--If the condition is true, it returns 1; otherwise, it returns 0. 
