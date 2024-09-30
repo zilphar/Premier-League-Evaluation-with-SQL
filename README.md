@@ -1,4 +1,18 @@
-# 1. Premier-League-Analysis
+# 1. Sales Project Analysis 
+This analysis looks into the sales performance of an hypothetical organization for the four quarters of a year. 
+
+**<ins> Objectives</ins>**
+
+It looks into: 
+1. Sales Quarterly performance.
+2. How products performed in each quarter and the leading products for each quarter and the whole year
+3. Customers who had sales greater than the average total sales.
+
+**<ins> Tool Used </ins>**
+Microsoft SQL Server Managemnet Studio (SSMS).
+
+
+# 2. Premier-League-Analysis
 This analysis looks at the premier league games that occurred in season2223 and season0910. 
 
 **<ins>Season2223</ins>**
@@ -12,6 +26,4 @@ The last part is a short analysis of Manchester United to get a glimpse of how t
 **<ins> Tool Used</ins>**
 
 SQL (MYSQL)
-
-# 2. Sales Project Analysis 
 
