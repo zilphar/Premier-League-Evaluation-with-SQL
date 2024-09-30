@@ -9,6 +9,7 @@ It looks into:
 3. Customers who had sales greater than the average total sales.
 
 **<ins> Tool Used </ins>**
+
 Microsoft SQL Server Managemnet Studio (SSMS).
 
 
