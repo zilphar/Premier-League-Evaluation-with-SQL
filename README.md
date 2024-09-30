@@ -10,7 +10,7 @@ It looks into:
 
 **<ins> Tool Used </ins>**
 
-Microsoft SQL Server Managemnet Studio (SSMS).
+Microsoft SQL Server Management Studio (SSMS).
 
 
 # 2. Premier-League-Analysis
